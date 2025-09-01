@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaikumar Rajamani – Portfolio</title>
+  <style>
+    /* Base Styles */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f4ff;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(135deg, #303f9f, #1a237e);
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      background: #1a237e;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .navbar a:hover {
+      color: #ffeb3b;
+      box-shadow: 0 0 10px #ffeb3b, 0 0 20px #ffeb3b, 0 0 30px #ffeb3b;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: scale(1.05);
+    }
+
+    /* Sections */
+    section {
+      margin: 30px 0;
+      padding: 25px;
+      border-radius: 12px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-left: 6px solid #3f51b5;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(63, 81, 181, 0.2);
+      transition: all 0.4s ease-in-out;
+    }
+
+    section:nth-of-type(odd) {
+      background: #e8eaf6;
+      border-left-color: #5c6bc0;
+    }
+
+    section:nth-of-type(even) {
+      background: #ffffff;
+      border-left-color: #3f51b5;
+    }
+
+    h2 {
+      color: #303f9f;
+      border-bottom: 2px solid #c5cae9;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    /* Certification Grid */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .cert-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      border-left: 6px solid #3f51b5;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease-in-out;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .cert-card.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .cert-card:hover {
+      transform: scale(1.03);
+      background: #e8eaf6;
+      box-shadow:
+        0 4px 20px rgba(63, 81, 181, 0.3),
+        0 0 12px rgba(63, 81, 181, 0.2);
+    }
+
+    .cert-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    /* Animation Delays */
+    .cert-card:nth-child(1) { animation-delay: 0.1s; }
+    .cert-card:nth-child(2) { animation-delay: 0.2s; }
+    .cert-card:nth-child(3) { animation-delay: 0.3s; }
+    .cert-card:nth-child(4) { animation-delay: 0.4s; }
+    .cert-card:nth-child(5) { animation-delay: 0.5s; }
+    .cert-card:nth-child(6) { animation-delay: 0.6s; }
+    .cert-card:nth-child(7) { animation-delay: 0.7s; }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: #303f9f;
+      color: #fff;
+      text-align: center;
+      padding: 12px 0;
+      margin-top: 30px;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Jaikumar Rajamani</h1>
+      <p>Software Engineer & Web Developer | AI & Data Science</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#personal skills">Personal skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About</h2>
+    <p>Third-year B.Tech in Artificial Intelligence & Data Science. Passionate about turning data into actionable insights. Currently pursuing a Data Analytics course.</p>
+    <ul>
+      <li><strong>Birthday:</strong> 12 Dec 2005</li>
+      <li><strong>City:</strong> Tiruchirappalli, Tamil Nadu, India</li>
+      <li><strong>Degree:</strong> B.Tech AI & Data Science</li>
+      <li><strong>Email:</strong> mrjair144@gmail.com</li>
+      <li><strong>Freelance:</strong> Available</li>
+    </ul>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Python</li>
+      <li>SQL</li>
+      <li>MS Office</li>
+      <li>Web Development</li>
+      <li>HTML</li>
+      <li>JavaScript</li>
+    </ul>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+      <li>B.Tech AI & Data Science (2023–2027), M.A.M. School of Engineering, Trichy</li>
+      <li>HSC (2022–2023), ADW HR SEC SCH THULAIYANATHAM</li>
+    </ul>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications">
+    <div class="container">
+      <h2>Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <h5>Completion of C Training</h5>
+          <p>From <strong>Spoken Tutorial</strong></p>
+          <img src="C.jpg" alt="C Training Certificate" loading="lazy" />
+        </div>
+        <div class="cert-card">
+          <h5>Completion of C++ Training</h5>
+          <p>From <strong>Spoken Tutorial</strong></p>
+          <img src="CPP.jpg" alt="C++ Training Certificate" loading="lazy" />
+        </div>
+        <div class="cert-card">
+          <h5>Oracle Fusion HCM Certification</h5>
+          <p>From <strong>Oracle</strong></p>
+          <img src="ORACLE 2.jpg" alt="Oracle Fusion HCM Certificate" loading="lazy" />
+        </div>
+        <div class="cert-card">
+          <h5>Oracle Fusion ERP Certification</h5>
+          <p>From <strong>Novi Tech R&D Pvt Ltd</strong></p>
+          <img src="ORACLE.jpg" alt="Oracle Fusion ERP Certificate" loading="lazy" />
+        </div>
+        <div class="cert-card">
+          <h5>Oracle Fusion SCM Certification</h5>
+          <p>From <strong>Novi Tech R&D Pvt Ltd</strong></p>
+          <img src="ORACLE 3.jpg" alt="Oracle Fusion SCM Certificate" loading="lazy" />
+        </div>
+        <div class="cert-card">
+          <h5>Academic Process Mining Fundamentals</h5>
+          <p>From <strong>Celonis Academy</strong></p>
+          <img src="CELONIS.jpg" alt="Celonis Certificate" loading="lazy" />
+        </div>
+        <div class="cert-card">
+          <h5>Basics For Students</h5>
+          <p>From <strong>MongoDB</strong></p>
+          <img src="MDB.jpg" alt="MongoDB Certificate" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Personal skills -->
+  <section id="personal skills" class="reveal">
+    <div class="container">
+      <h2 class="text-warning">Personal skills</h2>
+      <div class="row g-4">
+        <!-- TODO: Replace these placeholders with your real projects & links/images -->
+        <div class="col-md-4">
+          <div class="personal skills-item reveal animate-hover">
+            <h5>INTERNSHIP 1</h5>
+            <p>Internship On "DATA ANALYTICS" based on MS EXCEL.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="personal skills-item reveal animate-hover">
+            <h5>INTERNSHIP 2</h5>
+            <p>Intership on "ARTIFICIAL INTELLIGENCE".</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="personal skills-item reveal animate-hover">
+            <h5>INTERNSHIP 3</h5>
+            <p>Internship on "MACHINE LEARNING".</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="personal skills-item reveal animate-hover">
+            <h5>HTML</h5>
+            <p>Has a full knowledge of HTML</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="personal skills-item reveal animate-hover">
+            <h5>MICROSOFT OFFICE</h5>
+            <p>Has a 80 % Knowledge on OFFICE TOOLS</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="personal skills-item reveal animate-hover">
+            <h5>CODING LANGUAGE</h5>
+            <p>Has a 80 % Knowledge of PYTHON and a 70 % Knowledge of JavaScript </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <ul>
+      <li><strong>Address:</strong> Sinthampatti, Musiri, Tiruchirappalli, Tamil Nadu</li>
+      <li><strong>Phone:</strong> +91 7094911183</li>
+      <li><strong>Email:</strong> mrjair144@gmail.com</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Jaikumar Rajamani</p>
+    </div>
+  </footer>
+
+  <!-- Scroll-triggered Animation Script -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section, .cert-card').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
